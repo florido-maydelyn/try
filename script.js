@@ -1,4 +1,4 @@
-document.getElementById('studentForm').addEventListener('submit', function(event) {
+document.getElementById('student_form').addEventListener('submit', function(event) {
   event.preventDefault();
 
   const name = document.getElementById('name').value;
@@ -7,8 +7,8 @@ document.getElementById('studentForm').addEventListener('submit', function(event
   const year_level = document.getElementById('year_level').value;
   const birthday = document.getElementById('birthday').value;
 
-  if (!document.getElementById('updateButton').classList.contains('hidden')) {
-      const id = document.getElementById('studentForm').dataset.id;
+  if (!document.getElementById('update_button').classList.contains('hidden')) {
+      const id = document.getElementById('student_form').dataset.id;
       const updatedStudent = { id, name, email, course, year_level, birthday };
 
       fetch('https://restapi.hershive.com/florido/florido_end_file.php', {
@@ -41,7 +41,7 @@ function loadStudents() {
   fetch('https://restapi.hershive.com/florido/florido_end_file.php')
   .then(response => response.json())
   .then(data => {
-      const tbody = document.getElementById('studentTable').querySelector('tbody');
+      const tbody = document.getElementById('student_table').querySelector('tbody');
       tbody.innerHTML = '';
       data.forEach((student, index) => {
           const row = document.createElement('tr');
@@ -75,9 +75,9 @@ function editStudent(id) {
       document.getElementById('year_level').value = student.year_level;
       document.getElementById('birthday').value = student.birthday || '';
 
-      document.getElementById('studentForm').dataset.id = id;
-      document.getElementById('updateButton').classList.remove('hidden');
-      document.getElementById('addButton').classList.add('hidden');
+      document.getElementById('student_form').dataset.id = id;
+      document.getElementById('update_button').classList.remove('hidden');
+      document.getElementById('add_button').classList.add('hidden');
   });
 }
 
@@ -98,10 +98,10 @@ function deleteStudent(id) {
 }
 
 function clearForm() {
-  document.getElementById('studentForm').reset();
-  delete document.getElementById('studentForm').dataset.id;
-  document.getElementById('updateButton').classList.add('hidden');
-  document.getElementById('addButton').classList.remove('hidden');
+  document.getElementById('student_form').reset();
+  delete document.getElementById('student_form').dataset.id;
+  document.getElementById('update_button').classList.add('hidden');
+  document.getElementById('add_button').classList.remove('hidden');
 }
 
 loadStudents();
