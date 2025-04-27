@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Student Information Record</title>
+</head>
+
+<body>
+  <h1>Student Information</h1>
+  <form id="studentForm">
+    <input type="text" id="name" placeholder="Full Name" required>
+    <input type="text" id="student_id" placeholder="Student ID" required>
+    <input type="text" id="course" placeholder="Course" required>
+    <input type="number" id="year_level" placeholder="Year Level" required>
+    <input type="date" id="birthday" placeholder="Birthday" required>
+    <button type="submit" id="addButton" class="action-button">Add Student</button>
+    <button type="submit" id="updateButton" class="hidden">Update Student</button>
+  </form>
+
+  <table id="studentTable">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Full Name</th>
+        <th>Student ID</th>
+        <th>Course</th>
+        <th>Year Level</th>
+        <th>Birthday</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script src="script.js"></script>
+</body>
+</html>
