@@ -12,7 +12,7 @@ document.getElementById('studentForm').addEventListener('submit', function(event
       const id = document.getElementById('studentForm').dataset.id; // Get the ID from the dataset
       const updatedStudent = { id, name, student_id, course, year_level, birthday };
 
-      fetch('http://localhost/student_api/api.php', {
+      fetch('https://restapi.hershive.com/florido/florido_end_file.php', {
           method: 'PATCH',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(updatedStudent)
@@ -25,7 +25,7 @@ document.getElementById('studentForm').addEventListener('submit', function(event
       });
   } else {
       // Adding a new student
-      fetch('http://localhost/student_api/api.php', {
+      fetch('https://restapi.hershive.com/florido/florido_end_file.php', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ name, student_id, course, year_level, birthday })
@@ -40,7 +40,7 @@ document.getElementById('studentForm').addEventListener('submit', function(event
 });
 
 function loadStudents() {
-  fetch('http://localhost/student_api/api.php')
+  fetch('https://restapi.hershive.com/florido/florido_end_file.php')
   .then(response => response.json())
   .then(data => {
       const tbody = document.getElementById('studentTable').querySelector('tbody');
@@ -69,7 +69,7 @@ function loadStudents() {
 
 function editStudent(id) {
   // Fetch the student's current details
-  fetch(`http://localhost/student_api/api.php?id=${id}`)
+  fetch(`https://restapi.hershive.com/florido/florido_end_file.php?id=${id}`)
   .then(response => response.json())
   .then(student => {
       // Populate the form with the student's current details
@@ -86,7 +86,7 @@ function editStudent(id) {
 }
 
 function deleteStudent(id) {
-  fetch('http://localhost/student_api/api.php', {
+  fetch('https://restapi.hershive.com/florido/florido_end_file.php', {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ id })
